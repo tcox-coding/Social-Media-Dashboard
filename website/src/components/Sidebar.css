@@ -1,0 +1,38 @@
+#sidebar {
+  height: 100%;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 0.2rem solid black; */
+}
+
+#sidebar p {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.sidebar-button {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: white;
+  margin-top: 0.5rem;
+}
+
+.sidebar-button:hover {
+  cursor: pointer;
+}
+
+#spotify-logo {
+  width: 4rem;
+}

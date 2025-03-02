@@ -1,0 +1,22 @@
+.spotify-user-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.spotify-user-container p {
+  margin: 0;
+  padding: 1rem;
+}
+
+.spotify-user-container svg {
+  margin: 0;
+  padding: 1rem;
+}
+
+.spotify-user-container:hover {
+  cursor: pointer;
+  background-color: #EDF2F4;
+}

@@ -1,0 +1,25 @@
+.spotify-track-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  /* margin-left: 1rem; */
+}
+
+.spotify-track-container p {
+  margin: 0;
+  padding: 1rem;
+  margin-left: 2rem;
+}
+
+.spotify-track-container svg {
+  margin: 0;
+  padding: 1rem;
+}
+
+.spotify-track-container:hover {
+  cursor: pointer;
+  background-color: #EDF2F4;
+}

@@ -1,0 +1,30 @@
+Table spotify.user {
+  id int [pk, increment, not null]
+  name text [not null]
+  spotify_id text [not null]
+}
+
+Table spotify.playlist {
+  id int [pk, increment]
+  name text [not null]
+  spotify_id text [not null]
+  snapshot_id text [not null]
+  user_id int [ref: > spotify.user.id, not null]
+}
+
+Table spotify.track {
+  id int [pk, increment, not null]
+  name text [not null]
+  spotify_id text [not null]
+  uri text [not null]
+  order int [not null]
+  playlist_id int [ref: > spotify.playlist.id, not null]
+}
+
+Table spotify.update {
+  id int [pk, increment, not null]
+  user_id int [ref: > spotify.user.id, not null]
+  playlist_id int [ref: > spotify.playlist.id, not null]
+  action text [not null]
+  created_at timestamp [not null]
+}

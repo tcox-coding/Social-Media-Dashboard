@@ -1,0 +1,24 @@
+.spotify-playlist-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.spotify-playlist-container p {
+  margin: 0;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.spotify-playlist-container svg {
+  margin: 0;
+  padding: 1rem;
+}
+
+.spotify-playlist-container:hover {
+  cursor: pointer;
+  background-color: #EDF2F4;
+}
