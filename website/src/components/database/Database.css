@@ -36,3 +36,21 @@
   padding: 0;
   margin: 0;
 }
+
+#new-user-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#new-user-dialog h3 {
+  margin: 0rem;
+}
+
+#new-user-dialog input {
+  margin: 0.5rem;
+}

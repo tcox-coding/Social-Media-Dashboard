@@ -8,3 +8,6 @@ Tells you when creators you follow on your favorite platforms update their socia
 
 ## Installation
 WIP
+
+## Requirements
+[Spotify API Key](https://developer.spotify.com/)

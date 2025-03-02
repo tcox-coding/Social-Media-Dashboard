@@ -12,6 +12,7 @@ export default function Dashboard() {
   const [users, setUsers] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [tracks, setTracks] = useState([]);
+  const [addedNewUser, setAddedNewUser] = useState(false);
 
   const context = {
     selectedUser,
@@ -25,7 +26,9 @@ export default function Dashboard() {
     playlists,
     setPlaylists,
     tracks,
-    setTracks
+    setTracks,
+    addedNewUser,
+    setAddedNewUser
   }
 
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function Dashboard() {
         let users = response.data.map((user: any) => user);
         setUsers(users)
       });
-  }, []);
+  }, [addedNewUser]);
 
   return (
     <DashboardContext.Provider value={context}>

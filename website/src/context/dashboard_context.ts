@@ -28,6 +28,8 @@ export interface DashboardContext {
   setPlaylists: (playlists: never[]) => void;
   tracks: Track[];
   setTracks: (tracks: never[]) => void;
+  addedNewUser: boolean;
+  setAddedNewUser: (added: boolean) => void;
 }
 
 export const DashboardContext = createContext<DashboardContext | undefined>(undefined);
