@@ -1,0 +1,31 @@
+services:
+  api:
+    extends:
+      file: api/docker-compose.yml
+      service: api
+    depends_on:
+      - database
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    environment:
+      - PRODUCTION=True
+    hostname: api
+    container_name: api
+  database:
+    extends:
+      file: database/docker-compose.yml
+      service: database
+    hostname: database
+    container_name: database
+  website:
+    extends:
+      file: website/docker-compose.yml
+      service: website
+    depends_on:
+      - api
+      - database
+    hostname: website
+    container_name: website

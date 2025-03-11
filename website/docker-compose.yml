@@ -1,0 +1,11 @@
+services:
+  website:
+    image: node:23.9-bookworm
+    container_name: social_media_dashboard_website
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    working_dir: /var/www/html
+    command: ["npm", "run", "dev"]
+    hostname: website

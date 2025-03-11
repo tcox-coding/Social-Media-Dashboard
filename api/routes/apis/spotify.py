@@ -11,6 +11,7 @@ import datetime
 
 from db.spotify import connect_to_db, create_spotify_track, create_spotify_update
 from db.spotify import get_spotify_user, get_spotify_playlists, get_spotify_updates, get_spotify_tracks, get_all_spotify_playlists, get_spotify_users
+from db.spotify import get_spotify_user_by_id
 from db.spotify import create_spotify_playlist, create_spotify_user
 from models.spotify import SpotifyPlaylist, SpotifyUser, SpotifyTrack, SpotifyUpdate
 
@@ -125,7 +126,7 @@ async def check_spotify_updates(user_id: str):
   api_playlists = sp.user_playlists(user_id)
 
   # Get the updates from the api and the database.
-  db_user: SpotifyUser = get_spotify_user(cur, user_id)
+  db_user: SpotifyUser = get_spotify_user_by_id(cur, user_id)
   db_playlist: List[SpotifyPlaylist] = get_spotify_playlists(cur, db_user.id)
   db_playlist_snapshots = [playlist.snapshot_id for playlist in db_playlist]
   api_playlist_snapshots = [playlist['snapshot_id'] for playlist in api_playlists['items']]
@@ -162,7 +163,6 @@ async def check_spotify_updates(user_id: str):
       # Get the tracks of the playlist.
       tracks = sp.playlist_tracks(playlist['id'], fields='items(track(name, id, uri))')
       for i, track in enumerate(tracks['items']):
-        print(track)
         if not track['track']:
           continue
         db_track = SpotifyTrack(
@@ -228,6 +228,11 @@ Spotify API Key Routes
 @router.post('/api-key')
 async def set_api_key(api_key: APIKey):
   previous_keys = ''
+
+  if not os.path.exists('.env'):
+    f = open('.env', 'w+')
+    f.close()
+
   with open('.env', 'r') as f:
     previous_keys = f.read()
 
@@ -246,4 +251,4 @@ async def set_api_key(api_key: APIKey):
       f.close()
 
   load_dotenv()
-  return 'API Key set.'
+  return 'API Key set.' 

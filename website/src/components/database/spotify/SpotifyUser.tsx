@@ -12,7 +12,7 @@ export default function SpotifyUser(props: { name: string, id: string }) {
   const context = useContext(DashboardContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/spotify/playlists/${context?.selectedUser}`)
+    axios.get(`http://localhost:3000/api/spotify/playlists/${context?.selectedUser}`)
       .then((response) => {
         console.log(response.data)
         let playlists = response.data.map((playlist: any) => playlist);

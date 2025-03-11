@@ -1,7 +1,7 @@
 import psycopg2
 import pprint
 from typing import List
-import json
+import os
 
 from models.spotify import SpotifyUser, SpotifyPlaylist, SpotifyTrack, SpotifyUpdate
 
@@ -12,7 +12,7 @@ from models.spotify import SpotifyUser, SpotifyPlaylist, SpotifyTrack, SpotifyUp
 def connect_to_db():
   '''Connects to the database and returns the connection and cursor.'''
   con = psycopg2.connect(
-    host='localhost',
+    host='database',
     database='social_media_dashboard',
     user='postgres',
     password='postgres'
@@ -42,6 +42,15 @@ def get_spotify_user(cur, spotify_id: str) -> SpotifyUser | None:
   user = cur.fetchone()
   if not user:
     return None
+  return SpotifyUser(id=user[0], name=user[1], spotify_id=user[2])
+
+def get_spotify_user_by_id(cur, user_id: int) -> SpotifyUser:
+  '''Returns the Spotify user with the given id.'''
+  cur.execute(
+    'SELECT * FROM spotify.user WHERE id = %s;',
+    (user_id,)
+  )
+  user = cur.fetchone()
   return SpotifyUser(id=user[0], name=user[1], spotify_id=user[2])
 
 def get_spotify_users(cur) -> List[SpotifyUser]:

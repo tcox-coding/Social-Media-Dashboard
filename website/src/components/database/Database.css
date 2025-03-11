@@ -1,6 +1,10 @@
 #main-content {
   flex-grow: 1;
   border: 0.2rem solid black;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 98%;
 }
 
 #database {

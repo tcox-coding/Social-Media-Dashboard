@@ -32,7 +32,7 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/spotify/users')
+    axios.get('http://localhost:3000/api/spotify/users')
       .then((response) => {
         console.log(response.data)
         let users = response.data.map((user: any) => user);

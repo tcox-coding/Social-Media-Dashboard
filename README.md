@@ -7,7 +7,12 @@ Tells you when creators you follow on your favorite platforms update their socia
 - Spotify
 
 ## Installation
-WIP
+Requires [Docker Compose](https://docs.docker.com/compose/install/).
+Run:
+
+`docker compose up`
+
+in main directory.
 
 ## Requirements
 [Spotify API Key](https://developer.spotify.com/)

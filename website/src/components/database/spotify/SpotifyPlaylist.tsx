@@ -12,7 +12,7 @@ export default function SpotifyPlaylist(props: { name: string, id: string }) {
 
   useEffect(() => {
     if(context?.selectedPlaylist === props['id']) {
-      axios.get(`http://localhost:8000/api/spotify/tracks/${props.id}`)
+      axios.get(`http://localhost:3000/api/spotify/tracks/${props.id}`)
         .then((response) => {
           let tracks = response.data.map((track: any) => track);
           context?.setTracks(tracks);

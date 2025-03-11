@@ -25,8 +25,9 @@
   justify-content: center;
   align-items: center;
   border: none;
-  background-color: white;
+  /* background-color: white; */
   margin-top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .sidebar-button:hover {

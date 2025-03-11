@@ -26,7 +26,7 @@ export default function Database() {
   const addNewUser = () => {
     // TODO:
     let new_username = (document.getElementById('spotify-new-username') as HTMLInputElement)?.value;
-    axios.post('http://localhost:8000/api/spotify/new-user', {spotify_id: new_username})
+    axios.post('http://localhost:3000/api/spotify/new-user', {spotify_id: new_username})
       .then((response) => {
         setNewUserDialogOpen(false);
         dashboardContext?.setAddedNewUser(true);
@@ -45,7 +45,7 @@ export default function Database() {
   const addNewAPIKey = () => {
     let new_client_id = (document.getElementById('spotify-client-id') as HTMLInputElement)?.value;
     let new_client_secret = (document.getElementById('spotify-client-secret') as HTMLInputElement)?.value;
-    axios.post('http://localhost:8000/api/spotify/api-key', {client_id: new_client_id, client_secret: new_client_secret})
+    axios.post('http://localhost:3000/api/spotify/api-key', {client_id: new_client_id, client_secret: new_client_secret})
       .then((response) => {
         setAPIKeyDialogOpen(false);
       });
